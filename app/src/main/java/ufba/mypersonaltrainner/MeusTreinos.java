@@ -4,6 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import ufba.mypersonaltrainner.lib.DynamicListView;
+import ufba.mypersonaltrainner.lib.Queijos;
+import ufba.mypersonaltrainner.lib.StableArrayAdapter;
 
 
 public class MeusTreinos extends Activity {
@@ -13,6 +20,18 @@ public class MeusTreinos extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meus_treinos);
 
+        ArrayList<String> mListaQueijos = new ArrayList<String>();
+        for (int i = 0; i < Queijos.sQueijosStrings.length; ++i) {
+            mListaQueijos.add(Queijos.sQueijosStrings[i]);
+        }
+
+        StableArrayAdapter adapter = new StableArrayAdapter(this,
+                R.layout.view_item_lista_treino, mListaQueijos);
+        DynamicListView listView = (DynamicListView) findViewById(R.id.list_training);
+
+        listView.setCheeseList(mListaQueijos);
+        listView.setAdapter(adapter);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
     }
 
 
