@@ -22,7 +22,7 @@ import android.widget.ArrayAdapter;
 import java.util.HashMap;
 import java.util.List;
 
-public class StableArrayAdapter extends ArrayAdapter<String> {
+public class StableArrayAdapter extends ArrayAdapter<Treino> {
 
     final int INVALID_ID = -1;
 

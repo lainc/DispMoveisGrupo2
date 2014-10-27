@@ -20,9 +20,8 @@ public class LoginActivity extends Activity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           Intent i = new Intent(getBaseContext(), SideBarActivity.class);
-           startActivity(i);
-
+               Intent i = new Intent(getBaseContext(), SideBarActivity.class);
+               startActivity(i);
             }
         });
     }
