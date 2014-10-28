@@ -22,13 +22,13 @@ import android.widget.ArrayAdapter;
 import java.util.HashMap;
 import java.util.List;
 
-public class StableArrayAdapter extends ArrayAdapter<Treino> {
+public class StableArrayAdapter extends ArrayAdapter<Object> {
 
     final int INVALID_ID = -1;
 
-    HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+    HashMap<Object, Integer> mIdMap = new HashMap<Object, Integer>();
 
-    public StableArrayAdapter(Context context, int textViewResourceId, List<String> objects) {
+    public StableArrayAdapter(Context context, int textViewResourceId, List<Object> objects) {
         super(context, textViewResourceId, objects);
         for (int i = 0; i < objects.size(); ++i) {
             mIdMap.put(objects.get(i), i);
@@ -40,7 +40,7 @@ public class StableArrayAdapter extends ArrayAdapter<Treino> {
         if (position < 0 || position >= mIdMap.size()) {
             return INVALID_ID;
         }
-        String item = getItem(position);
+        Object item = getItem(position);
         return mIdMap.get(item);
     }
 
