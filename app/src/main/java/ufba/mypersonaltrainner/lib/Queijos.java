@@ -16,9 +16,19 @@
 
 package ufba.mypersonaltrainner.lib;
 
+import ufba.mypersonaltrainner.Exercicio;
+
 public class Queijos {
 
-    public static final String[] sQueijosStrings = {
+    public static final Exercicio[] sQueijosStrings = {
+            new Exercicio("Supino Reto", "3", "45"),
+            new Exercicio("Crucifixo", "3", "45"),
+            new Exercicio("Supino Inclinado", "3", "45"),
+            new Exercicio("Rosca Direta", "3", "45"),
+            new Exercicio("Rosca Inversa", "3", "45"),
+            new Exercicio("Rosca Martelo", "3", "45")
+    };
+            /*{
             "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
             "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale",
             "Aisy Cendre", "Allgauer Emmentaler", "Alverca", "Ambert", "American Cheese",
@@ -149,5 +159,5 @@ public class Queijos {
             "Wensleydale", "White Stilton", "Whitestone Farmhouse", "Wigmore", "Woodside Cabecou",
             "Xanadu", "Xynotyro", "Yarg Cornish", "Yarra Valley Pyramid", "Yorkshire Blue",
             "Zamorano", "Zanetti Grana Padano", "Zanetti Parmigiano Reggiano"
-    };
+    };*/
 }

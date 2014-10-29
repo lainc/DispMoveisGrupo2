@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import ufba.mypersonaltrainner.lib.DynamicListView;
 import ufba.mypersonaltrainner.lib.Queijos;
@@ -20,10 +21,8 @@ public class MeusTreinos extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meus_treinos);
 
-        ArrayList<String> mListaQueijos = new ArrayList<String>();
-        for (int i = 0; i < Queijos.sQueijosStrings.length; ++i) {
-            mListaQueijos.add(Queijos.sQueijosStrings[i]);
-        }
+        ArrayList<Exercicio> mListaQueijos = new ArrayList<Exercicio>(
+                Arrays.asList(Queijos.sQueijosStrings));
 
         StableArrayAdapter adapter = new StableArrayAdapter(this,
                 R.layout.view_item_lista_treino, mListaQueijos);

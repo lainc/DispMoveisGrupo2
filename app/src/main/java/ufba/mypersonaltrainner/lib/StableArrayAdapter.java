@@ -18,20 +18,31 @@
 package ufba.mypersonaltrainner.lib;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
 import java.util.HashMap;
 import java.util.List;
 
-public class StableArrayAdapter extends ArrayAdapter<Object> {
+import ufba.mypersonaltrainner.Exercicio;
+import ufba.mypersonaltrainner.R;
+
+public class StableArrayAdapter extends ArrayAdapter<Exercicio> {
 
     final int INVALID_ID = -1;
 
-    HashMap<Object, Integer> mIdMap = new HashMap<Object, Integer>();
+    private LayoutInflater layoutInflater;
 
-    public StableArrayAdapter(Context context, int textViewResourceId, List<Object> objects) {
-        super(context, textViewResourceId, objects);
+    HashMap<Exercicio, Integer> mIdMap = new HashMap<Exercicio, Integer>();
+
+    public StableArrayAdapter(Context context, int linearLayoutResourceId, List<Exercicio> objects) {
+        super(context, linearLayoutResourceId, objects);
         for (int i = 0; i < objects.size(); ++i) {
             mIdMap.put(objects.get(i), i);
+            layoutInflater = LayoutInflater.from(context);
         }
     }
 
@@ -47,5 +58,34 @@ public class StableArrayAdapter extends ArrayAdapter<Object> {
     @Override
     public boolean hasStableIds() {
         return true;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = layoutInflater.inflate(R.layout.view_item_lista_treino, null);
+            holder = new ViewHolder();
+            holder.nome = (TextView) convertView.findViewById(R.id.nome);
+            holder.carga = (TextView) convertView.findViewById(R.id.carga);
+            holder.series = (TextView) convertView.findViewById(R.id.series);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        Exercicio item = getItem(position);
+
+        holder.nome.setText(item.getNome());
+        holder.carga.setText(item.getCarga());
+        holder.series.setText(item.getSeries());
+
+        return convertView;
+    }
+
+    static class ViewHolder {
+        TextView nome;
+        TextView series;
+        TextView carga;
     }
 }

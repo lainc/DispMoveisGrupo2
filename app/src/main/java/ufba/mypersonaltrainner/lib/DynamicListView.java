@@ -39,6 +39,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import ufba.mypersonaltrainner.Exercicio;
+
 
 /**
  * The dynamic listview is an extension of listview that supports cell dragging
@@ -67,7 +69,7 @@ public class DynamicListView extends ListView {
     private final int MOVE_DURATION = 150;
     private final int LINE_THICKNESS = 15;
 
-    public ArrayList<String> mCheeseList;
+    public ArrayList<Exercicio> mCheeseList;
 
     private int mLastEventY = -1;
 
@@ -500,7 +502,7 @@ public class DynamicListView extends ListView {
         return false;
     }
 
-    public void setCheeseList(ArrayList<String> cheeseList) {
+    public void setCheeseList(ArrayList<Exercicio> cheeseList) {
         mCheeseList = cheeseList;
     }
 

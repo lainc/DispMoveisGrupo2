@@ -2,10 +2,10 @@ package ufba.mypersonaltrainner;
 
 public class Exercicio {
     private String nome;
-    private int series;
-    private int carga;
+    private String series;
+    private String carga;
 
-    public Exercicio(String nome, int series, int carga) {
+    public Exercicio(String nome, String series, String carga) {
         this.nome = nome;
         this.series = series;
         this.carga = carga;
@@ -15,11 +15,11 @@ public class Exercicio {
         return nome;
     }
 
-    public int getSeries() {
+    public String getSeries() {
         return series;
     }
 
-    public int getCarga() {
+    public String getCarga() {
         return carga;
     }
 }
